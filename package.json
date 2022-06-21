@@ -2,10 +2,15 @@
   "name": "tdp_selenium",
   "version": "1.0.0",
   "description": "",
-  "main": "testGoogle.js",
+  "main": "index.js",
   "scripts": {
-    "test": "mocha testGoogle.js "
+    "test": "mocha testGoogle.spec.js "
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chromedriver": "^102.0.0",
+    "mocha": "^10.0.0",
+    "selenium-webdriver": "^4.2.0"
+  }
 }
