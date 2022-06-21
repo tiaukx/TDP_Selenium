@@ -34,10 +34,20 @@ describe("Check the search functionality in Google", function() {
         //accepts cookies pop up, that appears on each new browser
         driver.findElement(By.id("L2AGLb")).click();
         //now we need to access the search bar, once again, inspect the element via browser to get id / class / name of element
+        //await used to tell it to wait until our input has fully been entered
         await driver.findElement(By.name("q")).sendKeys("QA", Key.ENTER);
         //checks the title of the page to check the result is what we expect
         const val = await driver.wait(driver.getTitle(), 1000);
         //checks if the value we got is equal to what we expected
         assert.equal(val, "QA - Google Search")
     });
+
+    it("Go to google and search for BMW", async () => {
+        driver.get("http://www.google.co.uk");
+        driver.findElement(By.id("L2AGLb")).click();
+        await driver.findElement(By.name("q")).sendKeys("BMW", Key.ENTER);
+        const val = await driver.wait(driver.getTitle(), 1000);
+        assert.equal(val, "BMW - Google Search")
+    });
+
 });
