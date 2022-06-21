@@ -1,0 +1,11 @@
+{
+  "name": "tdp_selenium",
+  "version": "1.0.0",
+  "description": "",
+  "main": "testGoogle.js",
+  "scripts": {
+    "test": "mocha testGoogle.js "
+  },
+  "author": "",
+  "license": "ISC"
+}
