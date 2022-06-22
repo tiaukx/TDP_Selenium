@@ -9,14 +9,15 @@ describe("Check the search functionality in Google", function() {
 
     beforeEach(async () => {
         driver = await new Builder().forBrowser("chrome").build();
+        //sets a strict time to wait before throwing an exception, used as some things might take longer to load than others
         driver.manage().setTimeouts({implicit:10000});
     });
 
-    // afterEach(async () => {
-    //     await driver.quit();
-    // });
+    afterEach(async () => {
+        await driver.quit();
+    });
 
-    it("Click tshirt button and click on tshirt", async () => {
+    it("Add tshirt to bag and check it's been added to basket", async () => {
          
         driver.get("http://automationpractice.com/index.php");
 
@@ -33,14 +34,10 @@ describe("Check the search functionality in Google", function() {
         //stores H1 tag in text
         productText = await driver.wait(product.getText(), 1000);
 
-
         //clicks add to cart
         await driver.findElement(By.name("Submit")).click();
         //on pop up that appears, clicks proceed to checkout
-
-
         await driver.findElement(By.className("btn btn-default button button-medium")).click();
-
 
         let basket;
         let basketText;
